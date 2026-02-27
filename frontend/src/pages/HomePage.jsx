@@ -17,8 +17,8 @@ const HomePage = () => {
         const fetchRestaurants = async ()=> {
             try {
                 console.log("restaurant not found");
-                const res = await api.get("/restaurants");;
-                console.log(res.data);
+                const res = await GetRestaurantDetails();
+                console.log(res);
                 setRestaurants(res.data);
                 setIsRateLimited(false);
             } catch (error) {
