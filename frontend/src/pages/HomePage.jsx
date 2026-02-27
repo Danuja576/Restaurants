@@ -5,7 +5,9 @@ import axios from 'axios';
 import api from '../lib/axios';
 import toast from 'react-hot-toast';
 import RestaurantCard from '../components/RestaurantCard';
-import RestaurantsNotFound from '../components/RestaurantsNotFound'
+import RestaurantsNotFound from '../components/RestaurantsNotFound';
+import { GetRestaurantDetails } from '../frontendAPI';
+
 const HomePage = () => {
     const [isRateLimited, setIsRateLimited]= useState(false);
     const [restaurants,setRestaurants] = useState([]);
@@ -14,7 +16,8 @@ const HomePage = () => {
     useEffect(()=>{
         const fetchRestaurants = async ()=> {
             try {
-                const res = await api.get("/restaurants");
+                console.log("restaurant not found");
+                const res = await api.get("/restaurants");;
                 console.log(res.data);
                 setRestaurants(res.data);
                 setIsRateLimited(false);

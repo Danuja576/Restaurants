@@ -9,7 +9,7 @@ const Navbar = () => {
           <Link to={"/"} className="text-3xl font-bold text-primary font-mono tracking-tighter">ThinkBoard</Link>
           <div className="flex items-center gap-4">
             
-            <Link to={"/bookings"} className="btn btn-ghost gap-2">
+            <Link to={"/bookings"} className="btn btn-ghost gap-2"> 
               <ClipboardListIcon className="size-5"/>
               <span>Bookings</span>
             </Link>

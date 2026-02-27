@@ -3,6 +3,7 @@ import api from "../lib/axios";
 import { LoaderIcon, CalendarIcon, ArrowLeftIcon, UtensilsIcon } from "lucide-react";
 import toast from "react-hot-toast";
 import { Link } from "react-router";
+import { GetAllBookings } from "../frontendAPI";
 
 const BookingsPage = () => {
   const [bookings, setBookings] = useState([]);
@@ -11,7 +12,8 @@ const BookingsPage = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await api.get("/restaurants/bookings/all");
+        
+        const res = await GetAllBookings();
         setBookings(res.data);
       } catch (error) {
         toast.error("Failed to load bookings");

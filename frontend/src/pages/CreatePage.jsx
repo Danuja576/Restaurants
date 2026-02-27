@@ -27,7 +27,7 @@ const CreatePage = () => {
         content
       });
       toast.success("Restaurant created successfully!")
-      navigate("/");
+      return navigate("/");
     } catch (error) {
       console.log("Error creating restaurant",error);
       toast.error("Failed to create restaurant")
