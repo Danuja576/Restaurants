@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate, useParams } from 'react-router';
 import api from '../lib/axios';
 import { ArrowLeftIcon, LoaderIcon, Trash2Icon, PlusIcon ,UserIcon,PhoneIcon,CalendarIcon } from 'lucide-react';
+import { DeleteRestaurant, PutRestaurant } from '../frontendAPI';
 
 const RestaurantDetailPage = () => {
   const [restaurant,setRestaurant] = useState(null);
@@ -108,7 +109,7 @@ const RestaurantDetailPage = () => {
     if (!window.confirm("Are you sure you want to delete this restaurant?")) return;
 
     try {
-      await api.delete(`/restaurants/${id}`);
+      await DeleteRestaurant(id);
       toast.success("Restaurant deleted");
       navigate("/");
     } catch (error) {
@@ -132,7 +133,7 @@ const RestaurantDetailPage = () => {
     setSaving(true);
 
     try {
-      await api.put(`/restaurants/${id}`, restaurant);
+      await PutRestaurant(id,restaurant);
       toast.success("Restaurant updated successfully");
       navigate("/");
     } catch (error) {

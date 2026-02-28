@@ -3,6 +3,7 @@ import { ArrowLeftIcon } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import api from "../lib/axios";
+import { PostRestaurant } from "../frontendAPI";
 
 const CreatePage = () => {
   const [name,setName] = useState("");
@@ -22,10 +23,12 @@ const CreatePage = () => {
 
     setLoading(true)
     try {
-      await api.post("/restaurants",{
+      const data = {
         name,
         content
-      });
+      }
+      await PostRestaurant(data);
+      
       toast.success("Restaurant created successfully!")
       return navigate("/");
     } catch (error) {
