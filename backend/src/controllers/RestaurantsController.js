@@ -71,7 +71,7 @@ export async function updateRestaurant(req, res){
         });
         if(!updatedRestaurant) return res.status(404).json({message:"Restaurant not found"});
         
-        res.status(200).json(updateRestaurant);
+        res.status(200).json(updatedRestaurant);
     }catch(error){
         
         console.error("Error in updatedRestaurants controllers",error);
