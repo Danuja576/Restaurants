@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { PlusIcon, ClipboardListIcon, UserCircle, LogOut, User } from "lucide-react";
+import { PlusIcon, ClipboardListIcon, UserCircle, LogOut, User, Settings } from "lucide-react";
 import { Link, useNavigate } from "react-router";
 
 const Navbar = () => {
@@ -37,6 +37,7 @@ const Navbar = () => {
             >
               <UserCircle className={`size-7 ${userInfo ? 'text-primary' : 'text-gray-400'}`}/>
             </button>
+
           </div>
         </div>
       </div>
@@ -59,6 +60,10 @@ const Navbar = () => {
                 <ClipboardListIcon className="size-4" /> My Bookings
               </Link>
 
+              <Link to="/settings" onClick={() => setIsPanelOpen(false)} className="flex items-center gap-2 text-gray-300 hover:text-white text-sm py-1">
+                <Settings className="size-4" /> Settings
+              </Link>
+              
               <button 
                 onClick={handleLogout}
                 className="flex items-center gap-2 text-red-400 hover:text-red-300 text-sm py-1 w-full text-left"

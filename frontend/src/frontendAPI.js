@@ -8,6 +8,10 @@ export const RegisterUser = (userData) => {
   return api.post("/auth/register", userData);
 };
 
+export const UpdateProfile = (userData) => {
+  return api.put("/auth/profile", userData);
+};
+
 export const GetRestaurantDetails = () => {
     console.log("")
   return api.get(`/restaurants`);
