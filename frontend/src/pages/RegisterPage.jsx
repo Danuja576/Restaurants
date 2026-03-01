@@ -4,6 +4,7 @@ import { RegisterUser } from "../frontendAPI";
 import toast from "react-hot-toast";
 
 const RegisterPage = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,7 +17,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const { data } = await RegisterUser({ email, password });
+      const { data } = await RegisterUser({ name, email, password });
       localStorage.setItem("userInfo", JSON.stringify(data));
       toast.success("Account created successfully!");
       navigate("/"); 
@@ -29,6 +30,14 @@ const RegisterPage = () => {
     <div className="flex justify-center items-center min-h-screen">
       <form onSubmit={handleRegister} className="bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col gap-4 w-96">
         <h2 className="text-2xl text-white font-bold text-center">Create Account</h2>
+        <input
+          type="text"
+          placeholder="Full Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="p-2 rounded bg-gray-700 text-white outline-none"
+          required
+        />
         <input
           type="email"
           placeholder="Email"
