@@ -11,7 +11,6 @@ const SettingsPage = () => {
   const [password, setPassword] = useState("");
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
-  // Handle Theme Change
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
@@ -22,7 +21,7 @@ const SettingsPage = () => {
     try {
       const { data } = await UpdateProfile({ id: userInfo._id, name, email, password });
       localStorage.setItem("userInfo", JSON.stringify(data));
-      setPassword(""); // Clear password field after successful update
+      setPassword("");
       toast.success("Profile updated successfully!");
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to update profile");
@@ -40,7 +39,6 @@ const SettingsPage = () => {
         <div className="bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col gap-6 w-full max-w-md">
           <h2 className="text-2xl text-white font-bold border-b border-gray-700 pb-2">Settings</h2>
           
-          {/* Appearance Section */}
           <div className="flex flex-col gap-2 border-b border-gray-700 pb-4">
             <h3 className="text-lg text-primary font-semibold">Appearance</h3>
             <div className="flex items-center justify-between text-gray-300">
@@ -56,7 +54,6 @@ const SettingsPage = () => {
             </div>
           </div>
 
-          {/* Profile Section */}
           <form onSubmit={handleUpdateProfile} className="flex flex-col gap-4">
             <h3 className="text-lg text-primary font-semibold">User Details</h3>
             <input
