@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 import path from "path"
 import rateLimiter from "./middleware/rateLimiter.js";
 import cors from "cors"
+import AuthRoutes from "./Routes/AuthRoutes.js";
 
 dotenv.config();
 
@@ -29,7 +30,7 @@ app.use(rateLimiter);
 //    console.log(`Request method is ${req.method} & Req URL is ${req.url}`);
 //    next();
 // })
-
+app.use("/api/auth", AuthRoutes);
 app.use("/api/restaurants",RestaurantsRoutes);
 
 if(process.env.NODE_ENV === "production"){

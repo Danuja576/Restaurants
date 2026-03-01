@@ -1,4 +1,4 @@
-import { PlusIcon,ClipboardListIcon } from "lucide-react";
+import { PlusIcon, ClipboardListIcon, UserCircle } from "lucide-react";
 import { Link } from "react-router";
 
 const Navbar = () => {
@@ -17,6 +17,10 @@ const Navbar = () => {
             <Link to={"/create"} className="btn btn-primary">
               <PlusIcon className="size-5"/>
               <span>New Restaurant</span>
+            </Link>
+            
+            <Link to={"/login"} className="btn btn-ghost btn-circle">
+              <UserCircle className="size-6 text-primary"/>
             </Link>
           </div>
         </div>

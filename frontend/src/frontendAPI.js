@@ -1,5 +1,13 @@
 import api from "./lib/axios";
 
+export const LoginUser = (credentials) => {
+  return api.post("/auth/login", credentials);
+};
+
+export const RegisterUser = (userData) => {
+  return api.post("/auth/register", userData);
+};
+
 export const GetRestaurantDetails = () => {
     console.log("")
   return api.get(`/restaurants`);
